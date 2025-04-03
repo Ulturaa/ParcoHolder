@@ -45,11 +45,39 @@ Start:
     je Setup_next
     cmp r9, r13
     jge Setup_next
-    
+
+sobel_solve:
     ; Solve for Ix of n
     
-    
-    
+    sub rbx, r13      ; Previous row
+    sub rbx, 1        ; Get top left corner of kernel
+    ; perform something
+    add rbx, 2        ; Top right of kernel
+    ; do something
+    add rbx, r13      ; Middle right of kernel
+    ; do something
+    sub rbx, 2        ; Middle left of kernel
+    ; Do something
+    add rbx, r13      ; Bottom left of kernel
+    ; do something 
+    add rbx, 2        ; Bottok right of kernel
+    ; do something
+
+    ; Get the avg of results
+    ; Store somewhere 
+    sub rbx, r13+1
+
+    ; Solve for Iy of n
+
+
+    ; Square Ix and Iy
+    ; Add Ix and Iy
+    ; Get the square root of the sum
+    ; Compare the result with the threshold
+    ; If result > thresh, store 255
+    ; Else, store 0
+
+
     
     ; loopback here
 L1:
@@ -67,3 +95,6 @@ L1:
     
 Setup_next:
     ; set up here
+
+
+End_loop
