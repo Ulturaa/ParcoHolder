@@ -77,7 +77,8 @@ sobel_solve:
     ; If result > thresh, store 255
     ; Else, store 0
 
-
+Setup_nxt:
+    ; Increment count
     
     ; loopback here
 L1:
@@ -93,8 +94,16 @@ L1:
     
     ; Check for threshold
     
-Setup_next:
-    ; set up here
+Col_nxt:
+    inc rbx
+    inc r9
+    jmp Start   ; Update jump to check if end of column
 
+Row_nxt:
+    ; Reset row index
+    ; Jump back to start
 
-End_loop
+Prog_end:
+    ; Store/Update destination / Save results into Destination matrix
+    ; Restore pushed registers
+    ret
